@@ -44,7 +44,19 @@ chicken: bock
   {{ site.layouts }}
   sss
 </div>
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+
+<div style="background:rgb(195,212,250); padding:1em; border: 1px solid rgb(86,122,204); border-radius: .5em;">
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
 
 <pre><code>$ cd your_repo_root/repo_name
 $ git fetch origin
