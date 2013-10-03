@@ -1,1 +1,4 @@
-Weeee
+---
+title: Demo 1
+---
+Demo page.
