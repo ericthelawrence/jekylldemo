@@ -16,8 +16,9 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // configurable paths
         yeoman: {
-            app: '',
-            dist: 'dist'
+            app: '.',
+            dist: 'dist',
+            jekylldir: '_site'
         },
         watch: {
             // compass: {
@@ -25,8 +26,8 @@ module.exports = function (grunt) {
             //     tasks: ['compass:server', 'autoprefixer']
             // },
             styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-                tasks: ['copy:styles', 'autoprefixer']
+                files: ['<%= yeoman.app %>/styles/{,*/}*.css']
+                // tasks: ['copy:styles', 'autoprefixer']
             },
             livereload: {
                 options: {
@@ -34,15 +35,24 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/*.html',
-                    '.tmp/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
+                    '<%= yeoman.app %>/_includes/*.html',
+                    '<%= yeoman.app %>/_layout/*.html',
+                    // '.tmp/styles/{,*/}*.css',
+                    // '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             },
-
+            jekyll: {
+              files: [
+                '<%= yeoman.app %>/*.html',
+                '<%= yeoman.app %>/_includes/*.html',
+                '<%= yeoman.app %>/_layout/*.html'
+              ],
+	            tasks: ['jekyll']
+            },
             stylus: {
-	            files: ['<%= yeoman.app %>/stylesheets/{,*/}*.{styl}'],
-	            tasks: ['stylus:compile']
+              files: ['<%= yeoman.app %>/stylesheets/{,*/}*.{styl}'],
+              tasks: ['stylus:compile']
             }
         },
         connect: {
@@ -57,7 +67,7 @@ module.exports = function (grunt) {
                     open: true,
                     base: [
                         '.tmp',
-                        '<%= yeoman.app %>'
+                        '<%= yeoman.jekylldir %>'
                     ]
                 }
             },
@@ -242,14 +252,14 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'compass',
+                // 'compass',
                 'copy:styles'
             ],
             test: [
                 'copy:styles'
             ],
             dist: [
-                'compass',
+                // 'compass',
                 'copy:styles',
                 'imagemin',
                 'svgmin',
@@ -266,23 +276,26 @@ module.exports = function (grunt) {
         },
 
         jekyll: {                               // Task
-		      options: {                            // Universal options
-		        bundleExec: true,
-		        src : '<%= app %>'
-		      },
-			    dist: {                             // Target
-			      options: {                           // Target options
-			        dest: '<%= dist %>',
-			        config: '_config.yml'//'_config.yml,_config.build.yml'
-			      }
-			    },
-			    serve: {                               // Another target
-			      options: {
-			        dest: '.jekyll',
-			        drafts: true
-			      }
-			    }
-			  },
+          options: {                            // Universal options
+            bundleExec: true,
+            // watch: true,
+            src : '<%= app %>'
+          },
+          // dist: {                             // Target
+          //   options: {                           // Target options
+          //     dest: '<%= dist %>',
+          //     config: '_config.yml'//'_config.yml,_config.build.yml'
+          //   }
+          // },
+          serve: {                               // Another target
+            options: {
+              dest: '_site',
+              // watch: true,
+              // dest: '.jekyll',
+              drafts: true
+            }
+  		    }
+		    },
 
 
 			  stylus: {
@@ -347,7 +360,12 @@ module.exports = function (grunt) {
     grunt.registerTask('dev', [
         // 'clean:server',
         // 'watch:stylus'
-        'jekyll'
+        // 'connect:jekyll',
+
+        'jekyll',// bundle exec jekyll serve --watch
+        'concurrent:server',
+        'connect:livereload',
+        'watch'
 
     ]);
 
