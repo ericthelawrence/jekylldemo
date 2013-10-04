@@ -1,4 +1,6 @@
 ---
 title: Demo 1
+layout: post
+category: articles
 ---
 Demo page.

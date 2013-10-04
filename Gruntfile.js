@@ -273,7 +273,7 @@ module.exports = function (grunt) {
 			    dist: {                             // Target
 			      options: {                           // Target options
 			        dest: '<%= dist %>',
-			        config: '_config.yml,_config.build.yml'
+			        config: '_config.yml'//'_config.yml,_config.build.yml'
 			      }
 			    },
 			    serve: {                               // Another target
@@ -345,8 +345,9 @@ module.exports = function (grunt) {
     ]);
 
     grunt.registerTask('dev', [
-        'clean:server',
-        'watch:stylus'
+        // 'clean:server',
+        // 'watch:stylus'
+        'jekyll'
 
     ]);
 

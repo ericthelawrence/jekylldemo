@@ -1,15 +1,15 @@
-title:            Site Title
-tagline:          A short tagline
-description:      Describe your website.
+title:            Jekyll Site Demo
+tagline:          A demo site built upon Jekyll
+description:      Jekyll is a "blog aware" static content generator for building and maintaining small sites.
 #Comment out url when working locally to resolve base urls correctly
-url:              /
+# url:              /
 
 # Owner/author information
 owner:
-  name:           Your Name
+  name:           Eric Lawrence
   avatar:         bio-photo.jpg
-  bio:            "Describe your self."
-  email:          your@email.com
+  bio:            "Developer/UX Designer"
+  email:          eric@squaretone.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
   twitter:        
   facebook:       
@@ -36,12 +36,12 @@ links:
     url: /articles
   - title: Theme Setup
     url: /theme-setup
-  - title: Made Mistakes
-    url: http://mademistakes.com
+  - title: More about Jekyll
+    url: http://jekyllrb.com/
     external: true
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
+timezone:    America/Chicago
 future:      true
 pygments:    true
 markdown:    kramdown
