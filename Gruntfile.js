@@ -17,33 +17,31 @@ module.exports = function (grunt) {
         // configurable paths
         yeoman: {
             app: '.',
-            dist: 'dist',
+            dist: 'dist', // TODO: Remove
             jekylldir: '_site'
         },
         watch: {
-            // compass: {
-            //     files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-            //     tasks: ['compass:server', 'autoprefixer']
+            // styles: {
+            //     files: ['<%= yeoman.app %>/styles/{,*/}*.css']
+            //     tasks: ['copy:styles']
             // },
-            styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.css']
-                // tasks: ['copy:styles', 'autoprefixer']
-            },
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '<%= yeoman.app %>/*.html',
-                    '<%= yeoman.app %>/_includes/*.html',
-                    '<%= yeoman.app %>/_layout/*.html',
-                    // '.tmp/styles/{,*/}*.css',
-                    // '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+                    // '<%= yeoman.app %>/*.html',
+                    // '<%= yeoman.app %>/_includes/*.html',
+                    // '<%= yeoman.app %>/_layout/*.html',
+                    // '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+                    // '<%= yeoman.jekylldir %>/stylesheets/*.css'
+                    // '<%= yeoman.jekylldir %>/{,*/}*'
+                    '<%= yeoman.jekylldir %>/stylesheets/{,*/}*'
                 ]
             },
             jekyll: {
               files: [
+                // '<%= yeoman.app %>/stylesheets/*.css',
                 '<%= yeoman.app %>/*.html',
                 '<%= yeoman.app %>/_includes/*.html',
                 '<%= yeoman.app %>/_layout/*.html'
@@ -51,8 +49,16 @@ module.exports = function (grunt) {
 	            tasks: ['jekyll']
             },
             stylus: {
-              files: ['<%= yeoman.app %>/stylesheets/{,*/}*.{styl}'],
-              tasks: ['stylus:compile']
+              files: ['stylesheets/*.styl'],
+              tasks: [
+                'stylus:compile',
+                // 'clean:jekyllstyles',
+                'copy:jekyllstyles'
+              ]
+            },
+            markers: {
+              files: ['<%= yeoman.app %>/stylesheets/*.{styl}'],
+              tasks: ['mark']
             }
         },
         connect: {
@@ -88,17 +94,18 @@ module.exports = function (grunt) {
             }
         },
         clean: {
-            dist: {
-                files: [{
-                    dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= yeoman.dist %>/*',
-                        '!<%= yeoman.dist %>/.git*'
-                    ]
-                }]
-            },
-            server: '.tmp'
+          dist: {
+              files: [{
+                  dot: true,
+                  src: [
+                      '.tmp',
+                      '<%= yeoman.dist %>/*',
+                      '!<%= yeoman.dist %>/.git*'
+                  ]
+              }]
+          },
+          server: '.tmp',
+          jekyllstyles: '<%= yeoman.jekylldir %>/stylesheets'
         },
         jshint: {
             options: {
@@ -248,6 +255,13 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            jekyllstyles: {
+              expand: true,
+              dot: true,
+              cwd: '<%= yeoman.app %>/stylesheets',
+              dest: '<%= yeoman.jekylldir %>/stylesheets/',
+              src: '{,*/}*.css'
             }
         },
         concurrent: {
@@ -281,12 +295,6 @@ module.exports = function (grunt) {
             // watch: true,
             src : '<%= app %>'
           },
-          // dist: {                             // Target
-          //   options: {                           // Target options
-          //     dest: '<%= dist %>',
-          //     config: '_config.yml'//'_config.yml,_config.build.yml'
-          //   }
-          // },
           serve: {                               // Another target
             options: {
               dest: '_site',
@@ -300,7 +308,8 @@ module.exports = function (grunt) {
 
 			  stylus: {
 				  compile: {
-				    // options: {
+				    options: {
+              compress: false
 				    //   paths: ['path/to/import', 'another/to/import'],
 				    //   urlfunc: 'embedurl', // use embedurl('test.png') in our code to trigger Data URI embedding
 				    //   use: [
@@ -310,10 +319,10 @@ module.exports = function (grunt) {
 				    //   'foo',       //  that is compiled. These might be findable based on values you gave
 				    //   'bar/moo'    //  to `paths`, or a plugin you added under `use`
 				    //   ]
-				    // },
+				    },
 				    files: {
-				      // 'path/to/result.css': 'path/to/source.styl', // 1:1 compile
-				      'path/to/another.css': ['path/to/sources/*.styl', 'path/to/more/*.styl'] // compile and concat into single file
+				      'stylesheets/main.css': 'stylesheets/main.styl' // 1:1 compile
+				      // '<%= yeoman.app %>/stylesheets/main.css': ['<%= yeoman.app %>/stylesheets.styl', 'path/to/more/*.styl'] // compile and concat into single file
 				    }
 				  }
 				}
@@ -357,9 +366,13 @@ module.exports = function (grunt) {
         'usemin'
     ]);
 
+    grunt.registerTask('mark', function(){
+      console.log(':::::::::::::::::    mark    :::::::::::::::::::::');
+    });
+
     grunt.registerTask('dev', [
         // 'clean:server',
-        // 'watch:stylus'
+        // 'watch:stylus',
         // 'connect:jekyll',
 
         'jekyll',// bundle exec jekyll serve --watch
