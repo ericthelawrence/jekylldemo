@@ -1,15 +1,20 @@
-<div class="navigation-wrapper">
-	<div class="site-name">
-		<a href="/">{{ site.title }} 7</a>
-	</div><!-- /.site-name -->
-	<div class="top-navigation">
-		<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-		    <ul>
-		        {% for link in site.links %}
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">{{ site.title }}</a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        {% for link in site.links %}
 				<li><a href="{% if link.external %}{{ link.url }}{% else %}{{ link.url }}{% endif %}" {% if link.external %}target="_blank"{% endif %}>{{ link.title }}</a></li>
-		        {% endfor %}
-		        <li><i class="icon-feed"></i> <a href="/feed.xml" title="Atom/RSS feed">Feed</a>
-		    </ul>
-		</nav>
-	</div><!-- /.top-navigation -->
-</div><!-- /.navigation-wrapper -->
+        {% endfor %}
+        <li><i class="icon-feed"></i> <a href="/feed.xml" title="Atom/RSS feed">Feed</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>

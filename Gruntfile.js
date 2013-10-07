@@ -36,20 +36,31 @@ module.exports = function (grunt) {
                     // '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                     // '<%= yeoman.jekylldir %>/stylesheets/*.css'
                     // '<%= yeoman.jekylldir %>/{,*/}*'
-                    '<%= yeoman.jekylldir %>/stylesheets/{,*/}*'
+                    '<%= yeoman.jekylldir %>/layout/index.html',
+                    '<%= yeoman.jekylldir %>/stylesheets/{,*/}*',
+                    '<%= yeoman.jekylldir %>/theme/js/templates/templates.js'
                 ]
             },
             jekyll: {
               files: [
                 // '<%= yeoman.app %>/stylesheets/*.css',
-                '<%= yeoman.app %>/*.html',
+                '<%= yeoman.app %>/*.md',
                 '<%= yeoman.app %>/_includes/*.html',
                 '<%= yeoman.app %>/_layout/*.html'
               ],
 	            tasks: ['jekyll']
             },
+            handlebars: {
+              files: [
+                '<%= yeoman.app %>/theme/js/templates/*.hbs'
+              ],
+              tasks: ['handlebars:compile']
+            },
             stylus: {
-              files: ['stylesheets/*.styl'],
+              files: [
+                'stylesheets/*.styl',
+                'theme/css/*.styl'
+                ],
               tasks: [
                 'stylus:compile',
                 // 'clean:jekyllstyles',
@@ -259,8 +270,8 @@ module.exports = function (grunt) {
             jekyllstyles: {
               expand: true,
               dot: true,
-              cwd: '<%= yeoman.app %>/stylesheets',
-              dest: '<%= yeoman.jekylldir %>/stylesheets/',
+              cwd: '<%= yeoman.app %>/theme/css',
+              dest: '<%= yeoman.jekylldir %>/theme/css/',
               src: '{,*/}*.css'
             }
         },
@@ -321,11 +332,22 @@ module.exports = function (grunt) {
 				    //   ]
 				    },
 				    files: {
-				      'stylesheets/main.css': 'stylesheets/main.styl' // 1:1 compile
+				      '<%= yeoman.app %>/theme/css/theme.css': '<%= yeoman.app %>/theme/css/theme.styl' // 1:1 compile
 				      // '<%= yeoman.app %>/stylesheets/main.css': ['<%= yeoman.app %>/stylesheets.styl', 'path/to/more/*.styl'] // compile and concat into single file
 				    }
 				  }
-				}
+				},
+
+        handlebars: {
+          compile: {
+            options: {
+              namespace: "JST"
+            },
+            files: {
+              "<%= yeoman.app %>/theme/js/templates/templates.js": "<%= yeoman.app %>/theme/js/templates/*.hbs"
+            }
+          }
+        }
 
 
     });
@@ -374,7 +396,7 @@ module.exports = function (grunt) {
         // 'clean:server',
         // 'watch:stylus',
         // 'connect:jekyll',
-
+        'stylus',
         'jekyll',// bundle exec jekyll serve --watch
         'concurrent:server',
         'connect:livereload',

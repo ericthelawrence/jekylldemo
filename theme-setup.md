@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 permalink: /theme-setup/index.html
 title: Theme Setup
 description: "Instructions on how to install and customize the Jekyll theme Minimal Mistakes."
@@ -9,57 +9,7 @@ image:
   credit: Texture Lovers
   creditlink: http://texturelovers.com
 ---
-
-<section id="table-of-contents" class="toc">
-  <header>
-    <h3 >Contents</h3>
-  </header>
-<div id="drawer" markdown="1">
-*  Auto generated table of contents
-{:toc}
-</div>
-</section><!-- /#table-of-contents -->
-
-General notes and suggestions for customizing Minimal Mistakes.
-
-## Basic Setup
-
-1. [Install Jekyll](http://jekyllrb.com) if you haven't already.
-2. Fork the [Minimal Mistakes repo](http://github.com/mmistakes/minimal-mistakes/)
-3. Make it your own and customize, customize, customize.
-
-<a markdown="0" href="http://github.com/mmistakes/minimal-mistakes" class="btn">Minimal Mistakes on GitHub</a>
-
-{% highlight text %}
-minimal-mistakes/
-├── _includes/
-|    ├── author-bio.html  #bio stuff goes here
-|    ├── browser-upgrade.html  #displays on IE8 and less
-|    ├── footer.html  #site footer
-|    ├── head.html  #site head
-|    ├── navigation.html #site top nav
-|    └── scripts.html  #jQuery, plugins, GA, etc.
-├── _layouts/
-|    ├── home.html  #homepage layout
-|    ├── page.html  #page layout
-|    ├── post-index.html  #post listing layout
-|    └── post.html  #post layout
-├── _posts/
-├── assets/
-|    ├── css/  #preprocessed less styles
-|    ├── fonts/  #icon webfonts
-|    ├── js/
-|    |   ├── _main.js  #Main JavaScript file, plugin settings, etc
-|    |   ├── plugins  #jQuery plugins
-|    |   └── vendor/  #jQuery and Modernizr
-|    └── less/
-├── images/  # images for posts and pages
-├── about.md  # about page
-├── articles.md  # lists all posts from latest to oldest
-└── index.md  # homepage. lists 5 most recent posts
-{% endhighlight %}
-
----
+<div class="col-xs-12 col-sm-9"  markdown="1">
 
 ## Customization
 
@@ -172,14 +122,18 @@ And if the command line isn't your thing (you're using Jekyll so it probably is)
 ## Questions?
 
 Having a problem getting something to work or want to know why I setup something in a certain way? Ping me on Twitter [@mmistakes](http://twitter.com/mmistakes) or [file a GitHub Issue](https://github.com/mmistakes/minima-mistakes/issues/new). And if you make something cool with this theme feel free to let me know.
-
----
-
-## License
-
-This theme is free and open source software, distributed under the [GNU General Public License]({{ site.url }}/LICENSE) version 2 or later. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer. 
+</div>
 
 
-[^1]: Used to generate absolute urls in `sitemap.xml`, `feed.xml`, and for canonical urls in `head.html`. Don't include a trailing `/` in your base url ie: `http://mademistakes.com`. When developing locally remove or comment out this line so local .css, .js, and images are used.
+<section id="table-of-contents-section" class="toc    col-xs-6 col-sm-3 sidebar-offcanvas" >
+  <header>
+    <h3 >Contents</h3>
+  </header>
+  <div id="drawer" markdown="1">
 
-[^2]: If you're using GitHub Pages to host your site be aware that plugins are disabled. So you'll need to build your site locally and then manually deploy if you want to use this sweet plugin.
+*  Auto generated table of contents
+{:toc}
+
+  </div>
+</section><!-- /#table-of-contents -->
+
