@@ -2,15 +2,26 @@
 <html>
 <head>
 	{% include head.html %}
+	<link href='http://fonts.googleapis.com/css?family=Domine:400,700' rel='stylesheet' type='text/css' />
 	<link rel="stylesheet" href="/theme/css/home.css" />
 <body class="home">
-	<div id="homescreen">
-		<div class="inner">
-		
-			{{ content }}
-	
-		</div>
-	</div>
+	<div id="wrap">
+  {% include browser-upgrade.html %}
+
+  {% include navigation.html %}
+
+  <div class="container homescreen">
+  	<div class="inner">
+	    {{content}}
+	  </div>
+  </div><!-- /.container -->
+</div><!-- /#wrap -->
+
+<div id="footer">
+  <div class="container">
+    {% include footer.html %}
+  </div>
+</div>
 
 	{% include scripts.html %}
 	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>

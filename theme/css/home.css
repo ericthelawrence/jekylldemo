@@ -1,3 +1,30 @@
 body.home {
-  font-size: inherit;
+  background-image: url("../img/patterns/vertical_cloth.png");
+}
+body.home .homescreen a {
+  color: #f1cf00;
+}
+body.home .homescreen .inner {
+  text-align: center;
+  margin: auto;
+  color: #bbb;
+}
+@media (min-width: 768px) {
+  body.home .homescreen .inner {
+    width: 400px;
+  }
+}
+body.home .homescreen .inner ul {
+  display: inline-block;
+  text-align: left;
+}
+body.home .homescreen .inner h1 {
+  font-family: 'Domine', serif;
+  font-size: 48px;
+  color: #ddd;
+  text-shadow: 1px 1px #eee, -1px -1px #444;
+}
+body.home .homescreen .inner .logoed {
+  background: url("../img/jlogo-2x.png") no-repeat top center;
+  background-size: auto 115px;
 }

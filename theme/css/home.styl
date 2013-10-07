@@ -1,3 +1,42 @@
+// Variables
+linkColorBase = #ffe859
+linkColor = darken(linkColorBase, 30%)
+
 body.home {
-	font-size: inherit;
+	background-image: url(../img/patterns/vertical_cloth.png); 
+
+
+	.homescreen {
+		a {
+			color: linkColor;
+		} 
+		.inner {
+			text-align: center;
+			margin: auto;
+			color: #bbb;
+
+			@media (min-width: 768px) {
+				& {
+					width: 400px;
+				}
+			}
+
+			ul {
+				display: inline-block;
+				text-align: left;
+			}
+
+			h1 {
+				font-family: 'Domine', serif;
+				font-size: 48px;
+				color: #ddd;
+				text-shadow: 1px 1px #eee, -1px -1px #444;
+			}
+
+			.logoed {
+				background: url(../img/jlogo-2x.png) no-repeat top center;
+				background-size: auto 115px;
+			}
+		}
+	}
 }
