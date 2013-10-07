@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Coming soon</title>
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-<div style="padding: 4em; text-align: center; font-family: sans; font-weight: normal; color: #444; font-size: .7em;">
-  <div style="margin: auto;">
-    <h1 style="font-weight: normal;">Coming soon</h1>
-  </div>
-</div>
+	{% include head.html %}
+<body class="home">
+	<div id="homescreen">
+		
+		{{ content }}
+
+	</div>
+	
+	{% include scripts.html %}
+	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
+	<script src="/theme/js/home.js"></script>
 </body>
 </html>
