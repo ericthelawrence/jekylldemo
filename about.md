@@ -24,6 +24,7 @@ Jekyll is pretty rad with a responsive Jekyll theme with large featured images a
 * Large feature images for posts and pages.
 * Simple and clear permalink structure *(ie: domain.com/category/post-title)*
 
+![Jekyll Logo](/theme/img/jlogo-2x.png "Example of inserting an image.")
 
 </div>
 

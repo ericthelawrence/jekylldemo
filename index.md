@@ -10,9 +10,10 @@ image:
 
 # Jekyll Demo site
 
-An example of developing and maintaining a site using the [Jekyll Static site generator] http://jekyllrb.com/ which has the following benifits:
+
+An example of developing and maintaining a site using the [Jekyll Static site generator](http://jekyllrb.com/) which has the following benifits:
 
 * Fast
 * Super Secure
-* * **FREE** * hosting using Github Pages
+* _FREE_ hosting using Github Pages
 * Automatic WYSIWYG via Prosio/Github

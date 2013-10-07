@@ -332,7 +332,8 @@ module.exports = function (grunt) {
 				    //   ]
 				    },
 				    files: {
-				      '<%= yeoman.app %>/theme/css/theme.css': '<%= yeoman.app %>/theme/css/theme.styl' // 1:1 compile
+              '<%= yeoman.app %>/theme/css/theme.css': '<%= yeoman.app %>/theme/css/theme.styl', // 1:1 compile
+				      '<%= yeoman.app %>/theme/css/home.css': '<%= yeoman.app %>/theme/css/home.styl' // 1:1 compile
 				      // '<%= yeoman.app %>/stylesheets/main.css': ['<%= yeoman.app %>/stylesheets.styl', 'path/to/more/*.styl'] // compile and concat into single file
 				    }
 				  }

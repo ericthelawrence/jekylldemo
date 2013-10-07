@@ -2,13 +2,16 @@
 <html>
 <head>
 	{% include head.html %}
+	<link rel="stylesheet" href="/theme/css/home.css" />
 <body class="home">
 	<div id="homescreen">
+		<div class="inner">
 		
-		{{ content }}
-
-	</div>
+			{{ content }}
 	
+		</div>
+	</div>
+
 	{% include scripts.html %}
 	<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
 	<script src="/theme/js/home.js"></script>
