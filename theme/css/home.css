@@ -1,18 +1,99 @@
 body.home {
   background-image: url("../img/patterns/vertical_cloth.png");
 }
+body.home .centered {
+  text-align: center;
+}
+body.home h4.integration {
+  font-size: 0.9em;
+  margin-top: 3em;
+}
+body.home h4.integration a {
+  color: #605300;
+  border-radius: 0.25em;
+  text-decoration: none;
+  display: inine-block;
+  background: #f1cf00;
+  padding: 0.5em 1em;
+  transition: background-color 0.3s linear;
+}
+body.home h4.integration a:hover {
+  transition: background-color 0.3s linear;
+  background: #fff093;
+}
+body.home h3#recent-posts {
+  margin-top: 0;
+  background: #1c1d22;
+  font-size: 1.4em;
+  padding: 0.5em 0.5em;
+}
+body.home hr {
+  margin-top: 3em;
+  margin-bottom: 0.25em;
+  border-top: 1px solid #121216;
+  border-bottom: 1px solid #363843;
+}
+body.home .love {
+  text-align: center;
+  font-size: 4em;
+}
+body.home .love .icon-heart {
+  font-size: 0.5em;
+  position: relative;
+  top: -0.75em;
+  left: -0.5em;
+  color: #a52633;
+}
+body.home .love .icon-github {
+  position: relative;
+  top: -0.25em;
+}
+body.home .icon-jekyll {
+  display: inline-block;
+  background: url("../img/jlogo-2x.png") no-repeat 0 0;
+  background-size: contain;
+  height: 1.25em;
+  width: 3em;
+}
 body.home .homescreen a {
   color: #f1cf00;
 }
-body.home .homescreen .inner {
-  text-align: center;
-  margin: auto;
-  color: #bbb;
+body.home .homescreen .bullet-points ul {
+  padding: 0;
+  margin: 0;
 }
-@media (min-width: 768px) {
-  body.home .homescreen .inner {
-    width: 400px;
-  }
+body.home .homescreen .bullet-points li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 0 0.25em;
+  display: inline-block;
+}
+body.home .homescreen .bullet-points li a {
+  background: #a52633;
+  color: #fff;
+  border-radius: 0.25em;
+  display: block;
+  padding: 0.25em 0.85em;
+  word-spacing: 0.125em;
+  transition: background-color 0.3s linear;
+}
+body.home .homescreen .bullet-points li a:hover {
+  text-decoration: none;
+  transition: background-color 0.3s linear;
+  background-color: #63171f;
+}
+body.home .homescreen .bullet-points li a:hover small {
+  transition: color 0.3s linear;
+  color: #eee;
+}
+body.home .homescreen .bullet-points li a small {
+  transition: color 0.3s linear;
+  display: block;
+  font-size: 0.8em;
+  color: #222;
+}
+body.home .homescreen .inner {
+  color: #bbb;
 }
 body.home .homescreen .inner ul {
   display: inline-block;
@@ -20,11 +101,28 @@ body.home .homescreen .inner ul {
 }
 body.home .homescreen .inner h1 {
   font-family: 'Domine', serif;
-  font-size: 48px;
+  font-size: 36px;
   color: #ddd;
   text-shadow: 1px 1px #eee, -1px -1px #444;
 }
 body.home .homescreen .inner .logoed {
   background: url("../img/jlogo-2x.png") no-repeat top center;
   background-size: auto 115px;
+}
+body.home article {
+  background: #23242b;
+  border-radius: 0.5em;
+  padding: 0.25em 0.5em;
+  margin-bottom: 0.5em;
+  font-size: 0.8em;
+}
+body.home article a i {
+  font-size: 0.8em;
+  padding-right: 0.5em;
+}
+body.home article a:hover i {
+  text-decoration: none;
+}
+body.home article h4 {
+  font-size: 1.3em;
 }

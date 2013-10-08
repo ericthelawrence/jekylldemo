@@ -2,24 +2,127 @@
 linkColorBase = #ffe859
 linkColor = darken(linkColorBase, 30%)
 
+linkTransitionColor = color 0.3s linear
+linkTransitionBg = background-color 0.3s linear
+
+redish = #a52633
+
+articleBg = #23242B
+
 body.home {
 	background-image: url(../img/patterns/vertical_cloth.png); 
 
+	.centered {
+		text-align: center;
+	}
+
+	h4.integration {
+		font-size: .9em;
+		margin-top: 3em;
+
+		a {
+			color: darken(linkColor, 60%);
+			border-radius: .25em;
+			text-decoration: none;
+			display: inine-block;
+			background: linkColor;
+			padding: .5em 1em;
+
+			transition: linkTransitionBg;
+
+			&:hover {
+				transition: linkTransitionBg;
+				background: lighten(linkColor, 60%);
+			}
+		}
+	}
+
+	h3#recent-posts {
+		margin-top:0;
+		background: darken(articleBg, 20%);
+		font-size: 1.4em;
+		padding: .5em .5em;
+
+	}
+
+	hr {
+		margin-top: 3em;
+		margin-bottom: .25em;
+		border-top: 1px solid darken(articleBg, 50%);
+		border-bottom: 1px solid lighten(articleBg, 10%);
+	}
+
+	.love {
+		text-align: center;
+		font-size: 4em;
+		.icon-heart {
+			font-size: .5em;
+			position: relative;
+			top: -.75em;
+			left: -.5em;
+			color: redish;
+		}
+		.icon-github {
+			position: relative;
+			top: -.25em;
+		}
+	}
+	.icon-jekyll {
+		display: inline-block;
+		background: url(../img/jlogo-2x.png) no-repeat 0 0;
+		background-size: contain;
+		height: 1.25em;
+		width: 3em;
+	}
 
 	.homescreen {
 		a {
 			color: linkColor;
 		} 
-		.inner {
-			text-align: center;
-			margin: auto;
-			color: #bbb;
 
-			@media (min-width: 768px) {
-				& {
-					width: 400px;
-				}
+		.bullet-points {
+			ul {
+				padding: 0;
+				margin: 0;
 			}
+			li {
+				list-style-type: none;
+				padding: 0;
+				margin: 0 0 0 .25em;
+				display: inline-block;
+
+				a {
+					background: redish;
+					color: #fff;
+					border-radius: .25em;
+					display: block;
+					padding: .25em .85em;
+					word-spacing: .125em;
+					transition: linkTransitionBg;
+
+					&:hover {
+						text-decoration: none;
+						transition: linkTransitionBg;
+						background-color: darken(redish, 40%);
+
+						small {
+							transition: linkTransitionColor;
+							color: #eee;
+						}
+					}
+
+					small {
+						transition: linkTransitionColor;
+						display: block;
+						font-size: .8em;
+						color: #222;
+					}
+				}
+
+			}
+		}
+		.inner {
+			color: #bbb;
 
 			ul {
 				display: inline-block;
@@ -28,7 +131,7 @@ body.home {
 
 			h1 {
 				font-family: 'Domine', serif;
-				font-size: 48px;
+				font-size: 36px;
 				color: #ddd;
 				text-shadow: 1px 1px #eee, -1px -1px #444;
 			}
@@ -37,6 +140,29 @@ body.home {
 				background: url(../img/jlogo-2x.png) no-repeat top center;
 				background-size: auto 115px;
 			}
+		}
+	}
+
+	article {
+		// background: darken(articleBg, 5%)
+		background: articleBg;
+		border-radius: .5em;
+		padding: .25em .5em;
+		margin-bottom: .5em;
+		font-size: .8em;
+
+		a {
+			i {
+				font-size: .8em;
+				padding-right: .5em;
+			}
+			&:hover i {
+				text-decoration: none;
+			}
+		}
+
+		h4 {
+			font-size: 1.3em;
 		}
 	}
 }
