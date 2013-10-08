@@ -83,6 +83,9 @@ body.home .homescreen .bullet-points li a {
   padding: 0.25em 0.85em;
   word-spacing: 0.125em;
   transition: background-color 0.3s linear;
+  min-height: 3em;
+  height: auto !important;
+  height: 3em;
 }
 body.home .homescreen .bullet-points li a:hover {
   text-decoration: none;
