@@ -2,13 +2,9 @@
 layout: default
 permalink: /about/index.html
 title: About this site
-tagline: Minimal Mistakes, a Jekyll Theme
+tagline: a Jekyll Theme & Demo Site
 tags: [about, Jekyll]
 modified: 10-4-2013
-image:
-  feature: texture-feature-02.jpg
-  credit: Texture Lovers
-  creditlink: http://texturelovers.com
 ---
 
 <div class="col-xs-12 col-sm-9"  markdown="1">
