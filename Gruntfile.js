@@ -36,8 +36,8 @@ module.exports = function (grunt) {
                     // '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                     // '<%= yeoman.jekylldir %>/stylesheets/*.css'
                     // '<%= yeoman.jekylldir %>/{,*/}*'
-                    '<%= yeoman.jekylldir %>/layout/index.html',
-                    '<%= yeoman.jekylldir %>/stylesheets/{,*/}*',
+                    '<%= yeoman.jekylldir %>/index.html',
+                    // '<%= yeoman.jekylldir %>/stylesheets/{,*/}*',
                     '<%= yeoman.jekylldir %>/theme/js/templates/templates.js'
                 ]
             },
@@ -46,6 +46,7 @@ module.exports = function (grunt) {
                 // '<%= yeoman.app %>/stylesheets/*.css',
                 '<%= yeoman.app %>/*.md',
                 '<%= yeoman.app %>/_includes/*.html',
+                '<%= yeoman.app %>/_posts/*.md',
                 '<%= yeoman.app %>/_layout/*.html'
               ],
 	            tasks: ['jekyll']

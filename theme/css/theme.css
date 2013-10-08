@@ -37,3 +37,6 @@ body {
   display: block;
   width: 5.25em;
 }
+.navbar-inverse {
+  background-color: #1c1d22;
+}

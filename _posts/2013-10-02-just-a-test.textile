@@ -1,6 +1,6 @@
 ---
-title: Demo 1
+title: Demo Article
 layout: post
 category: articles
 ---
-Demo page.
+Demo post page. This one is written in textile instead of markdown.
