@@ -36,7 +36,9 @@ recent posts:
 
 </div>
 <div class="col-md-4 centered" markdown="1" >
-## &nbsp;
+<div class="inner-well well" markdown="1">
+
+
 
 <div class="love">
 	<i class="icon-jekyll"></i>
@@ -53,5 +55,6 @@ Jekyll by itself is powerful enough, but when combined with other services such 
 	</a>
 </h4>
 
+</div>
 </div>
 </div><!--/row -->
