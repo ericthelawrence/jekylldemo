@@ -1,7 +1,4 @@
 ;(function($){
-	$(function(){
-	});
-	
 
 	var stylize_bullets = function () {
 		var bullets = $('.bullet-points li');
@@ -25,12 +22,9 @@
 			stagger += 200;
 		});
 
-		// bullets.delay(400).fadeIn("slow");
-
 	};
 
 	var init = function() {
-		// $('.bullet-points li').hide();
 		stylize_bullets();
 	};
 
