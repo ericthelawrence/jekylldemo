@@ -1,13 +1,20 @@
 ;(function($){
-	$(function(){init();});
+	console.log(1);
+	$(function(){
+		console.log(3);
+		init();
+	});
+	
 
 	var init = function() {
+		console.log(4);
 		$('.bullet-points li').hide();
 		console.log('init');
-		// stylize_bullets();
+		stylize_bullets();
 	};
 
 	var stylize_bullets = function () {
+		console.log(5);
 		var bullets = $('.bullet-points li').hide();
 
 		// add sub-text to bullets based on al
@@ -25,4 +32,6 @@
 
 	};
 
+	console.log(2);
 })(jQuery);
+console.log('2.5');
