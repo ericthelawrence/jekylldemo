@@ -1,20 +1,19 @@
 ;(function($){
-	init();
 	$(function(){
 	});
 	
-	var init = function() {
-		$('.bullet-points li').hide();
-		console.log('init');
-		stylize_bullets();
-	};
 
 	var stylize_bullets = function () {
-		console.log(5);
-		var bullets = $('.bullet-points li').hide();
+		var bullets = $('.bullet-points li');
+		var bulletList = bullets.closest('ul');
+		bulletList.height(bulletList.outerHeight() + 5).css({
+			overflow: 'hidden'
+		});
+		bullets.hide();
 
 		// add sub-text to bullets based on al
 		var links = bullets.find('a');
+		var stagger = 200;
 		$.each(links, function(id, link) {
 			var l = $(link);
 			var title = l.attr('title');
@@ -22,12 +21,19 @@
 				$('<small>' + title + '</small>').appendTo(l);
 				l.attr('title', ''); // empty it
 			}
+			l.parent().delay(stagger).fadeIn("slow");
+			stagger += 200;
 		});
 
-		bullets.delay(400).fadeIn("slow");
+		// bullets.delay(400).fadeIn("slow");
 
 	};
 
-	console.log(2);
+	var init = function() {
+		// $('.bullet-points li').hide();
+		stylize_bullets();
+	};
+
+	init();
+
 })(jQuery);
-console.log('2.5');
