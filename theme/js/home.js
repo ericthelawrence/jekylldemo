@@ -1,13 +1,14 @@
 ;(function($){
-
 	$(function(){init();});
 
 	var init = function() {
-		stylize_bullets();
+		$('.bullet-points li').hide();
+		console.log('init');
+		// stylize_bullets();
 	};
 
 	var stylize_bullets = function () {
-		var bullets = $('.bullet-points li');
+		var bullets = $('.bullet-points li').hide();
 
 		// add sub-text to bullets based on al
 		var links = bullets.find('a');
@@ -19,6 +20,8 @@
 				l.attr('title', ''); // empty it
 			}
 		});
+
+		// bullets.fadeIn("slow");
 
 	};
 
