@@ -1,13 +1,9 @@
 ;(function($){
-	console.log(1);
+	init();
 	$(function(){
-		console.log(3);
-		init();
 	});
 	
-
 	var init = function() {
-		console.log(4);
 		$('.bullet-points li').hide();
 		console.log('init');
 		stylize_bullets();
@@ -28,7 +24,7 @@
 			}
 		});
 
-		// bullets.fadeIn("slow");
+		bullets.delay(400).fadeIn("slow");
 
 	};
 
